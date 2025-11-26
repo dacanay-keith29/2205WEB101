@@ -6,7 +6,6 @@
   <title>About Us</title>
 
   <style>
-    /* ---- Minimalistic Base Style ---- */
     body {
       margin: 0;
       font-family: "Inter", Arial, sans-serif;
@@ -29,20 +28,18 @@
       letter-spacing: -0.5px;
     }
 
-    /* ---- Grid Layout ---- */
     .team {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 32px;
     }
 
-    /* ---- Card ---- */
     .card {
       background: #ffffffcc;
       backdrop-filter: blur(4px);
       border-radius: 14px;
-      padding: 22px;
-      text-align: center;
+      padding: 24px;
+      text-align: left;
       border: 1px solid #eaeaea;
       transition: 0.25s ease;
     }
@@ -52,7 +49,6 @@
       border-color: #dcdcdc;
     }
 
-    /* ---- Photo Container ---- */
     .photo-container {
       width: 100%;
       height: 280px;
@@ -60,6 +56,7 @@
       border-radius: 12px;
       position: relative;
       cursor: pointer;
+      margin-bottom: 15px;
     }
 
     .photo-container img {
@@ -72,13 +69,8 @@
       left: 0;
     }
 
-    .photo-main {
-      opacity: 1;
-    }
-
-    .photo-hover {
-      opacity: 0;
-    }
+    .photo-main { opacity: 1; }
+    .photo-hover { opacity: 0; }
 
     .photo-container:hover .photo-main {
       transform: scale(1.12);
@@ -90,19 +82,27 @@
       opacity: 1;
     }
 
-    /* ---- Name & Details ---- */
+    /* ---- Text Sections ---- */
     .name {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 18px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 10px;
       letter-spacing: -0.3px;
     }
 
     .details {
-      font-size: 0.95rem;
-      color: #555;
-      margin-top: 6px;
-      line-height: 1.45;
+      font-size: 0.93rem;
+      color: #444;
+      line-height: 1.55;
+    }
+
+    .details p {
+      margin: 6px 0;
+    }
+
+    .label {
+      font-weight: 600;
+      color: #292929;
     }
   </style>
 </head>
@@ -120,8 +120,15 @@
           <img src="person1-normal.jpg" class="photo-main" />
           <img src="person1-hover.jpg" class="photo-hover" />
         </div>
-        <div class="name">Person 1</div>
-        <div class="details">Short description about this person.</div>
+        <div class="name">MAGBUHOS DITO KA</div>
+        <div class="details">
+          <p><span class="label">Birthday - Age:</span> Month Day, Year — Age X</p>
+          <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
+          <p><span class="label">About:</span><br>
+          Short description here. 1–2 sentences.</p>
+          <p><span class="label">If you were food…</span><br>
+          Your creative food answer here.</p>
+        </div>
       </div>
 
       <!-- PERSON 2 -->
@@ -130,18 +137,32 @@
           <img src="person2-normal.jpg" class="photo-main" />
           <img src="person2-hover.jpg" class="photo-hover" />
         </div>
-        <div class="name">Person 2</div>
-        <div class="details">Short description about this person.</div>
+        <div class="name">CLOMA DITO KA</div>
+        <div class="details">
+          <p><span class="label">Birthday - Age:</span> Month Day, Year — Age X</p>
+          <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
+          <p><span class="label">About:</span><br>
+          Short description here.</p>
+          <p><span class="label">If you were food…</span><br>
+          Fun explanation here.</p>
+        </div>
       </div>
 
       <!-- PERSON 3 -->
       <div class="card">
         <div class="photo-container">
-          <img src="person3-normal.jpg" class="photo-main" />
-          <img src="person3-hover.jpg" class="photo-hover" />
+          <img src="dacanay.jpg" class="photo-main" />
+          <img src="dacanay_meme.jpg" class="photo-hover" />
         </div>
-        <div class="name">Person 3</div>
-        <div class="details">Short description about this person.</div>
+        <div class="name">Keith Elliot P. Dacanay "Kei"</div>
+        <div class="details">
+          <p><span class="label">March 25  (24 years old)</span></p>
+          <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/kei.dacanay.1/" target="_blank">Kei Dacanay</a></p>
+          <p><span class="label">About:</span><br>
+          A loyal and hard working student who is passionate about coding, gaming takes most of his time though.</p>
+          <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
+          Ice cream that's been left in the freezer for a week, because I want them to take their time with me.</p>
+        </div>
       </div>
 
       <!-- PERSON 4 -->
@@ -150,8 +171,15 @@
           <img src="person4-normal.jpg" class="photo-main" />
           <img src="person4-hover.jpg" class="photo-hover" />
         </div>
-        <div class="name">Person 4</div>
-        <div class="details">Short description about this person.</div>
+        <div class="name">OCAYA DITO KA</div>
+        <div class="details">
+          <p><span class="label">Birthday - Age:</span> Month Day, Year — Age X</p>
+          <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
+          <p><span class="label">About:</span><br>
+          Short description here.</p>
+          <p><span class="label">If you were food…</span><br>
+          Fun explanation here.</p>
+        </div>
       </div>
 
       <!-- PERSON 5 -->
@@ -160,8 +188,15 @@
           <img src="person5-normal.jpg" class="photo-main" />
           <img src="person5-hover.jpg" class="photo-hover" />
         </div>
-        <div class="name">Person 5</div>
-        <div class="details">Short description about this person.</div>
+        <div class="name">CRUZ DITO KA</div>
+        <div class="details">
+          <p><span class="label">Birthday - Age:</span> Month Day, Year — Age X</p>
+          <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
+          <p><span class="label">About:</span><br>
+          Short description here.</p>
+          <p><span class="label">If you were food…</span><br>
+          Fun explanation here.</p>
+        </div>
       </div>
 
       <!-- PERSON 6 -->
@@ -170,8 +205,15 @@
           <img src="person6-normal.jpg" class="photo-main" />
           <img src="person6-hover.jpg" class="photo-hover" />
         </div>
-        <div class="name">Person 6</div>
-        <div class="details">Short description about this person.</div>
+        <div class="name">MALDA DITO KA</div>
+        <div class="details">
+          <p><span class="label">Birthday - Age:</span> Month Day, Year — Age X</p>
+          <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
+          <p><span class="label">About:</span><br>
+          Short description here.</p>
+          <p><span class="label">If you were food…</span><br>
+          Fun explanation here.</p>
+        </div>
       </div>
 
       <!-- PERSON 7 -->
@@ -180,8 +222,15 @@
           <img src="person7-normal.jpg" class="photo-main" />
           <img src="person7-hover.jpg" class="photo-hover" />
         </div>
-        <div class="name">Person 7</div>
-        <div class="details">Short description about this person.</div>
+        <div class="name">AMOYO DITO KA</div>
+        <div class="details">
+          <p><span class="label">Birthday - Age:</span> Month Day, Year — Age X</p>
+          <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
+          <p><span class="label">About:</span><br>
+          Short description here.</p>
+          <p><span class="label">If you were food…</span><br>
+          Fun explanation here.</p>
+        </div>
       </div>
 
       <!-- PERSON 8 -->
@@ -190,8 +239,15 @@
           <img src="person8-normal.jpg" class="photo-main" />
           <img src="person8-hover.jpg" class="photo-hover" />
         </div>
-        <div class="name">Person 8</div>
-        <div class="details">Short description about this person.</div>
+        <div class="name">PAPA DITO KA</div>
+        <div class="details">
+          <p><span class="label">Birthday - Age:</span> Month Day, Year — Age X</p>
+          <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
+          <p><span class="label">About:</span><br>
+          Short description here.</p>
+          <p><span class="label">If you were food…</span><br>
+          Fun explanation here.</p>
+        </div>
       </div>
 
     </div>
