@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us</title>
+
+  <style>
+    /* ---- Minimalistic Base Style ---- */
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: linear-gradient(135deg, #fafafa, #f0f0f0);
+      color: #2b2b2b;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 45px;
+      color: #222;
+      letter-spacing: -0.5px;
+    }
+
+    /* ---- Grid Layout ---- */
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    /* ---- Card ---- */
+    .card {
+      background: #ffffffcc;
+      backdrop-filter: blur(4px);
+      border-radius: 14px;
+      padding: 22px;
+      text-align: center;
+      border: 1px solid #eaeaea;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #dcdcdc;
+    }
+
+    /* ---- Photo Container ---- */
+    .photo-container {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      transition: 0.45s ease;
+      top: 0;
+      left: 0;
+    }
+
+    .photo-main {
+      opacity: 1;
+    }
+
+    .photo-hover {
+      opacity: 0;
+    }
+
+    .photo-container:hover .photo-main {
+      transform: scale(1.12);
+      opacity: 0;
+    }
+
+    .photo-container:hover .photo-hover {
+      transform: scale(1.12);
+      opacity: 1;
+    }
+
+    /* ---- Name & Details ---- */
+    .name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 18px;
+      letter-spacing: -0.3px;
+    }
+
+    .details {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Meet the Team</h1>
+
+    <div class="team">
+
+      <!-- PERSON 1 -->
+      <div class="card">
+        <div class="photo-container">
+          <img src="person1-normal.jpg" class="photo-main" />
+          <img src="person1-hover.jpg" class="photo-hover" />
+        </div>
+        <div class="name">Person 1</div>
+        <div class="details">Short description about this person.</div>
+      </div>
+
+      <!-- PERSON 2 -->
+      <div class="card">
+        <div class="photo-container">
+          <img src="person2-normal.jpg" class="photo-main" />
+          <img src="person2-hover.jpg" class="photo-hover" />
+        </div>
+        <div class="name">Person 2</div>
+        <div class="details">Short description about this person.</div>
+      </div>
+
+      <!-- PERSON 3 -->
+      <div class="card">
+        <div class="photo-container">
+          <img src="person3-normal.jpg" class="photo-main" />
+          <img src="person3-hover.jpg" class="photo-hover" />
+        </div>
+        <div class="name">Person 3</div>
+        <div class="details">Short description about this person.</div>
+      </div>
+
+      <!-- PERSON 4 -->
+      <div class="card">
+        <div class="photo-container">
+          <img src="person4-normal.jpg" class="photo-main" />
+          <img src="person4-hover.jpg" class="photo-hover" />
+        </div>
+        <div class="name">Person 4</div>
+        <div class="details">Short description about this person.</div>
+      </div>
+
+      <!-- PERSON 5 -->
+      <div class="card">
+        <div class="photo-container">
+          <img src="person5-normal.jpg" class="photo-main" />
+          <img src="person5-hover.jpg" class="photo-hover" />
+        </div>
+        <div class="name">Person 5</div>
+        <div class="details">Short description about this person.</div>
+      </div>
+
+      <!-- PERSON 6 -->
+      <div class="card">
+        <div class="photo-container">
+          <img src="person6-normal.jpg" class="photo-main" />
+          <img src="person6-hover.jpg" class="photo-hover" />
+        </div>
+        <div class="name">Person 6</div>
+        <div class="details">Short description about this person.</div>
+      </div>
+
+      <!-- PERSON 7 -->
+      <div class="card">
+        <div class="photo-container">
+          <img src="person7-normal.jpg" class="photo-main" />
+          <img src="person7-hover.jpg" class="photo-hover" />
+        </div>
+        <div class="name">Person 7</div>
+        <div class="details">Short description about this person.</div>
+      </div>
+
+      <!-- PERSON 8 -->
+      <div class="card">
+        <div class="photo-container">
+          <img src="person8-normal.jpg" class="photo-main" />
+          <img src="person8-hover.jpg" class="photo-hover" />
+        </div>
+        <div class="name">Person 8</div>
+        <div class="details">Short description about this person.</div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
