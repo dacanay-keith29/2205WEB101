@@ -1,267 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Meet the Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Inter", Arial, sans-serif;
-      background: linear-gradient(135deg, #fafafa, #f0f0f0);
-      color: #2b2b2b;
-    }
+    <style>
+        /* --- GLOBAL & SHARED DASHBOARD STYLES --- */
+        body {
+            margin: 0;
+            /* Dashboard Font */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #f0f2f5; /* Dashboard light background */
+            color: #333;
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 20px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
 
-    h1 {
-      text-align: center;
-      font-size: 2.4rem;
-      font-weight: 600;
-      margin-bottom: 45px;
-      color: #222;
-      letter-spacing: -0.5px;
-    }
+        /* --- BACK BUTTON (Pill Design) --- */
+        .back-home-link {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            /* Dashboard Navy Color */
+            background-color: #34495e; 
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 30px;
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
 
-    .team {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
-    }
+        .back-home-link i {
+            margin-right: 5px;
+        }
 
-    .card {
-      background: #ffffffcc;
-      backdrop-filter: blur(4px);
-      border-radius: 14px;
-      padding: 24px;
-      text-align: left;
-      border: 1px solid #eaeaea;
-      transition: 0.25s ease;
-    }
+        .back-home-link:hover {
+            background-color: #4a6582;
+            transform: translateY(-1px);
+        }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #dcdcdc;
-    }
+        /* --- HEADING --- */
+        h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #192a56; /* Dashboard Primary Navy */
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
 
-    .photo-container {
-      width: 100%;
-      height: 280px;
-      overflow: hidden;
-      border-radius: 12px;
-      position: relative;
-      cursor: pointer;
-      margin-bottom: 15px;
-    }
+        /* --- TEAM GRID --- */
+        .team {
+            display: grid;
+            /* Adjustable grid columns for 8 members */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px;
+        }
 
-    .photo-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      transition: 0.45s ease;
-      top: 0;
-      left: 0;
-    }
+        /* --- CARD STYLE (Dashboard Aesthetic) --- */
+        .card {
+            background: white;
+            border-radius: 12px; 
+            padding: 25px; 
+            text-align: left;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+            transition: 0.3s ease;
+        }
 
-    .photo-main { opacity: 1; }
-    .photo-hover { opacity: 0; }
+        .card:hover {
+            transform: translateY(-5px); 
+            border-color: #dcdcdc;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
 
-    .photo-container:hover .photo-main {
-      transform: scale(1.12);
-      opacity: 0;
-    }
+        /* --- PHOTO SECTION (No Border) --- */
+        .photo-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            border-radius: 10px; 
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 18px;
+            border: none; /* No orange border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
 
-    .photo-container:hover .photo-hover {
-      transform: scale(1.12);
-      opacity: 1;
-    }
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            transition: 0.45s ease;
+            top: 0;
+            left: 0;
+        }
+        
+        .photo-main { opacity: 1; }
+        .photo-hover { opacity: 0; }
 
-    /* ---- Text Sections ---- */
-    .name {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: -0.3px;
-    }
+        .photo-container:hover .photo-main {
+            transform: scale(1.12);
+            opacity: 0;
+        }
 
-    .details {
-      font-size: 0.93rem;
-      color: #444;
-      line-height: 1.55;
-    }
+        .photo-container:hover .photo-hover {
+            transform: scale(1.12);
+            opacity: 1;
+        }
 
-    .details p {
-      margin: 6px 0;
-    }
+        /* ---- TEXT SECTIONS ---- */
+        .name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #192a56; /* Dashboard Navy Text */
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 10px;
+        }
 
-    .label {
-      font-weight: 600;
-      color: #292929;
-    }
-  </style>
+        .details {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .details p {
+            margin: 8px 0;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #333;
+            display: block; 
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+
+        .details a {
+            color: #273c75; 
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .details a:hover {
+            color: #ff9f43; /* Orange hover for links */
+            text-decoration: underline;
+        }
+
+        .details p:last-child {
+            /* Style for the 'If you were food...' section */
+            font-style: italic;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #e0e0e0;
+            color: #7f8fa6; 
+        }
+        
+        .details p:last-child .label {
+            color: #192a56;
+            font-style: normal;
+        }
+    </style>
 </head>
 
 <body>
+    <a href="index.html" class="back-home-link">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+    
+    <div class="container">
+        <h1>Meet the Team</h1>
 
-  <div class="container">
-    <h1>Meet the Team</h1>
+        <div class="team">
 
-    <div class="team">
+            <div class="card">
+                <div class="photo-container">
+                    <img src="Magbuhos.jpg" class="photo-main" />
+                    <img src="Magbuhos_meme.jpg" class="photo-hover" />
+                </div>
+                <div class="name">Magbuhos, Johnmichael R, "boo, magbu idol magbu"</div>
+                <div class="details">
+                    <p><span class="label">Birthday & Age:</span> February 1 2006 (19Years Old)</p>
+                    <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/johnmichael.magbuhos.2024/" target="_blank">Johnmichael Magbuhos</a></p>
+                    <p><span class="label">About:</span><br> ako si magbu isa akong blogger na sana balang araw makilala ako ng maraming tao at sana marami din saaking mag mahal na mga taga hanga bilang isang blogger.</p>
+                    <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
+                    pandesal kasi sa bawat tingin mo sa pandesal ko parang kinakain mo na ako</p>
+                </div>
+            </div>
 
-      <!-- PERSON 1 -->
-      <div class="card">
-        <div class="photo-container">
-          <img src="Magbuhos.jpg" class="photo-main" />
-          <img src="Magbuhos_meme.jpg" class="photo-hover" />
-        </div>
-        <div class="name">Magbuhos, Johnmichael R, "boo, magbu idol magbu"</div>
-        <div class="details">
-          <p><span class="label">February 1 2006 (19Years Old)</span> Month Day, Year — Age X</p>
-          <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/johnmichael.magbuhos.2024/" target="_blank">Johnmichael Magbuhos</a></p>
-          <p><span class="label">About: ako si magbu isa akong blogger na sana balang araw makilala ako ng maraming tao at sana marami din saaking mag mahal na mga taga hanga bilang isang blogger.</span><br>
-          Short description here.</p>
-          <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
-          pandesal kasi sa bawat tingin mo sa pandesal ko parang kinakain mo na ako</p>
-        </div>
-      </div>
+            <div class="card">
+                <div class="photo-container">
+                    <img src="cloma.jpg" class="photo-main" />
+                    <img src="cloma_meme.jpg" class="photo-hover" />
+                </div>
+                <div class="name">Lawrence Anthony V. Cloma "Renz"</div>
+                <div class="details">
+                    <p><span class="label">Birthday & Age:</span> June 13 - (20 years old)</p>
+                    <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/itsme.lawrence13" target="_blank">Lawrence Villena Cloma</a></p>
+                    <p><span class="label">About:</span><br> A down-to-earth student who's engaged about IT Industry, and also loves to ride his motorcycle to relieve stress.</p>
+                    <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
+                    It would be pizza, because everyone wants a slice of me.</p>
+                </div>
+            </div>
 
-      <!-- PERSON 2 -->
-      <div class="card">
-        <div class="photo-container">
-          <img src="cloma.jpg" class="photo-main" />
-          <img src="cloma_meme.jpg" class="photo-hover" />
-        </div>
-        <div class="name">Lawrence Anthony V. Cloma "Renz"</div>
-        <div class="details">
-          <p><span class="label">June 13 - (20 years old)</span> Month Day, Year — Age X</p>
-          <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/itsme.lawrence13" target="_blank">Lawrence Villena Cloma</a></p>
-          <p><span class="label">About: A down-to-earth student who's engaged about IT Industry, and also loves to ride his motorcycle to relieve stress.</span><br>
-          Short description here.</p>
-          <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
-          It would be pizza, because everyone wants a slice of me.</p>
-        </div>
-      </div>
+            <div class="card">
+                <div class="photo-container">
+                    <img src="dacanay.jpg" class="photo-main" />
+                    <img src="dacanay_meme.jpg" class="photo-hover" />
+                </div>
+                <div class="name">Keith Elliot P. Dacanay "Kei"</div>
+                <div class="details">
+                    <p><span class="label">Birthday & Age:</span> March 25 (24 years old)</p>
+                    <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/kei.dacanay.1/" target="_blank">Kei Dacanay</a></p>
+                    <p><span class="label">About:</span><br> A loyal and hard working student who is passionate about coding, gaming takes most of his time though.</p>
+                    <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
+                    Ice cream that's been left in the freezer for a week, because I want them to take their time with me.</p>
+                </div>
+            </div>
 
-      <!-- PERSON 3 -->
-      <div class="card">
-        <div class="photo-container">
-          <img src="dacanay.jpg" class="photo-main" />
-          <img src="dacanay_meme.jpg" class="photo-hover" />
-        </div>
-        <div class="name">Keith Elliot P. Dacanay "Kei"</div>
-        <div class="details">
-          <p><span class="label">March 25  (24 years old)</span></p>
-          <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/kei.dacanay.1/" target="_blank">Kei Dacanay</a></p>
-          <p><span class="label">About:</span><br>
-          A loyal and hard working student who is passionate about coding, gaming takes most of his time though.</p>
-          <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
-          Ice cream that's been left in the freezer for a week, because I want them to take their time with me.</p>
-        </div>
-      </div>
+            <div class="card">
+                <div class="photo-container">
+                    <img src="Ocaya.jpg" class="photo-main" />
+                    <img src="Ocaya_meme.jpg" class="photo-hover" />
+                </div>
+                <div class="name">Ernest L. Ocaya "kulot, Fukuda, Nest"</div>
+                <div class="details">
+                    <p><span class="label">Birthday & Age:</span> July 16 (21 years old)</p>
+                    <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/share/1Erg7mjXCV/" target="_blank">Ocaya Ernest</a></p>
+                    <p><span class="label">About:</span><br> Kind student, cheerful, helpful, friendly, and above all fun to be with</p>
+                    <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
+                    Saging, why? Because babalatan mo muna bago kainin</p>
+                </div>
+            </div>
 
-      <!-- PERSON 4 -->
-      <div class="card">
-        <div class="photo-container">
-          <img src="Ocaya.jpg" class="photo-main" />
-          <img src="Ocaya_meme.jpg" class="photo-hover" />
-        </div>
-        <div class="name">Ernest L. Ocaya "kulot, Fukuda, Nest"</div>
-        <div class="details">
-          <p><span class="label">July 16 (21 years old)</span> Month Day, Year — Age X</p>
-          <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/share/1Erg7mjXCV/" target="_blank">Ocaya Ernest</a></p>
-          <p><span class="label">About: Kind student, cheerful, helpful, friendly, and above all fun to be with</span><br>
-          Short description here.</p>
-          <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
-          Saging, why? Because babalatan mo muna bago kainin</p>
-        </div>
-      </div>
+            <div class="card">
+                <div class="photo-container">
+                    <img src="webdepota.jpg" class="photo-main" /> 
+                    <img src="person5-hover.jpg" class="photo-hover" />
+                </div>
+                <div class="name">CRUZ DITO KA</div>
+                <div class="details">
+                    <p><span class="label">Birthday & Age:</span> Month Day, Year — Age X</p>
+                    <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
+                    <p><span class="label">About:</span><br> Short description here.</p>
+                    <p><span class="label">If you were food…</span><br> Fun explanation here.</p>
+                </div>
+            </div>
 
-      <!-- PERSON 5 -->
-      <div class="card">
-        <div class="photo-container">
-          <img src="person5-normal.jpg" class="photo-main" />
-          <img src="person5-hover.jpg" class="photo-hover" />
-        </div>
-        <div class="name">CRUZ DITO KA</div>
-        <div class="details">
-          <p><span class="label">Birthday - Age:</span> Month Day, Year — Age X</p>
-          <p><span class="label">Facebook:</span> <a href="#" target="_blank">Facebook Profile</a></p>
-          <p><span class="label">About:</span><br>
-          Short description here.</p>
-          <p><span class="label">If you were food…</span><br>
-          Fun explanation here.</p>
-        </div>
-      </div>
+            <div class="card">
+                <div class="photo-container">
+                    <img src="malda.png" class="photo-main" />
+                    <img src="malda_meme.jpg" class="photo-hover" />
+                </div>
+                <div class="name">Kentseth Wesley M. Malda "Wesley, Kent"</div>
+                <div class="details">
+                    <p><span class="label">Birthday & Age:</span> October 29 - (20 years old)</p>
+                    <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/kentseth.malda" target="_blank">Kentseth Malda</a></p>
+                    <p><span class="label">About:</span><br> A passionate student focused on coding and development. My time is currently balanced between my programming endeavors, gaming, and essential house courses.</p>
+                    <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
+                    Halo-Halo, Why? Because halo-haloin muna bago kainin.</p>
+                </div>
+            </div>
 
-      <!-- PERSON 6 -->
-      <div class="card">
-        <div class="photo-container">
-          <img src="malda.png" class="photo-main" />
-          <img src="malda_meme.jpg" class="photo-hover" />
-        </div>
-        <div class="name">Kentseth Wesley M. Malda "Wesley, Kent"</div>
-        <div class="details">
-          <p><span class="label">October 29 - (20 years old)</span> Month Day, Year — Age X</p>
-          <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/kentseth.malda" target="_blank">Kentseth Malda</a></p>
-          <p><span class="label">About: </span><br>
-         A passionate student focused on coding and development. My time is currently balanced between my programming endeavors, gaming, and essential house courses.</p>
-          <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
-          Halo-Halo, Why? Because halo-haloin muna bago kainin. </p>
-        </div>
-      </div>
+            <div class="card">
+                <div class="photo-container">
+                    <img src="Amoyo.jpg" class="photo-main" />
+                    <img src="Amoyo_meme.jpg" class="photo-hover" />
+                </div>
+                <div class="name">Amoyo, Allyssa P., "Ally"</div>
+                <div class="details">
+                    <p><span class="label">Birthday & Age:</span> May 13 2003 (22 Years Old)</p>
+                    <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/alpha.238 " target="_blank">Amoyo, Allyssa</a></p>
+                    <p><span class="label">About:</span><br> A woman with dreams in life and a strong determination to learn, especially in coding. I may be a fat woman, but I will nourish myself with knowledge for my skills and for the job I want someday.</p>
+                    <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
+                    Mais para sa akin na di na nga ninanais at hindi rin ako namimiss</p>
+                </div>
+            </div>
 
-      <!-- PERSON 7 -->
-      <div class="card">
-        <div class="photo-container">
-          <img src="Amoyo.jpg" class="photo-main" />
-          <img src="Amoyo_meme.jpg" class="photo-hover" />
-        </div>
-        <div class="name">Amoyo, Allyssa P., "Ally"</div>
-        <div class="details">
-          <p><span class="label">May 13 2003 (22 Years Old)</span> Month Day, Year — Age X</p>
-          <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/alpha.238 " target="_blank">Amoyo, Allyssa</a></p>
-          <p><span class="label">About: A woman with dreams in life and a strong determination to learn, especially in coding. I may be a fat woman, but I will nourish myself with knowledge for my skills and for the job I want someday.</span><br>
-          Short description here.</p>
-          <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
-          Mais para sa akin na di na nga ninanais at hindi rin ako namimiss</p>
-        </div>
-      </div>
+            <div class="card">
+                <div class="photo-container">
+                    <img src="Papa.jpg" class="photo-main" />
+                    <img src="Papa_meme.jpg" class="photo-hover" />
+                </div>
+                <div class="name">Harold James M. Papa "Haja"</div>
+                <div class="details">
+                    <p><span class="label">Birthday & Age:</span> October 23 (24 Years Old)</p>
+                    <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/harold.mabanes/" target="_blank">Harold James</a></p>
+                    <p><span class="label">About:</span><br> A humble and hard working student who's passionate about coding, although gaming and house courses takes his time mostly.</p>
+                    <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
+                    Leftover Adobo, because the more they re-heat me, I became more tastier.</p>
+                </div>
+            </div>
 
-      <!-- PERSON 8 -->
-      <div class="card">
-        <div class="photo-container">
-          <img src="Papa.jpg" class="photo-main" />
-          <img src="Papa_meme.jpg" class="photo-hover" />
         </div>
-        <div class="name">Harold James M. Papa "Haja"</div>
-        <div class="details">
-          <p><span class="label">October 23  (24 Years Old)</span> Month Day, Year — Age X</p>
-          <p><span class="label">Facebook:</span> <a href="https://www.facebook.com/harold.mabanes/" target="_blank">Harold James</a></p>
-          <p><span class="label">About: A humble and hard working student who's passionate about coding, although gaming and house courses takes his time mostly.</span><br>
-          Short description here.</p>
-          <p><span class="label">If you were food, what would you be and how would you like to be eaten, and why?</span><br>
-          Leftover Adobo, because the more they re-heat me, I became more tastier.</p>
-        </div>
-      </div>
-
     </div>
-  </div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
